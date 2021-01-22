@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tutores.com - Tutores</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+
+</head>
+<body>
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Tutores.com</h1>
+        <h2 class="masthead-subheading mb-0">Registro de Tutores</h2>
+        <a href="/" class="btn btn-primary btn-xl rounded-pill mt-5">Volver a Inicio</a>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="/img/profesor.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Modifica tu perfil</h2>
+            <p>Carga tus nuevos datos y sigue siendo parte de la comunidad Tutores.com!!</p>
+            <form action="/tutor/actualizar-perfil" method="POST" enctype="multipart/form-data">
+              <p th:if="${error!=null}" th:text="${error}" style="color:red;"></p>
+
+              <input name="id" type="hidden" th:value="${perfil.id}">
+              
+              <br><label>Nombre</label></br>
+              <input name= "nombre"  type="text" placeholder="Escribe tu nombre" class="form-control" th:value="${perfil.nombre}"/>
+
+              <br><label>Apellido</label></br>
+              <input name= "apellido"  type="text" placeholder="Escribe tu apellido" class="form-control" th:value="${perfil.apellido}"/>
+
+              <br><label>Telefono</label></br>
+              <input name= "telefono"  type="text" placeholder="Telefono" class="form-control" th:value="${perfil.telefono}"/>
+              
+              <br><label>Mail</label></br>
+              <input name= "mail"  type="email" placeholder="Mail" class="form-control" th:value="${perfil.mail}"/>
+
+              <br><label> Zona </label></br>
+              <select class="form-control" name= "idZona"  type="text" placeholder="Indique su zona">
+                  <option th:each="zona:${zonas}" th:value="${zona.id}" th:text="${zona.nombre}" >Mendoza</option>
+              </select>
+              
+              <br><label> Materia </label></br>
+              <p>En la seccion de "Configuracion" de "Tutor", podrá especificar datos de materia e incluir otras más para enseñar</p>
+              <select class="form-control" name= "idMateria"  type="text" placeholder="Indique la materia que quiere enseñar">
+                <option th:each="materia:${materias}" th:value="${materia.id}" th:text="${materia.asignatura + '- ' +materia.nombre + '- ' + materia.nivelEducativo}" >Materia</option>
+              </select>
+              
+              <br><label >Contraseña</label></br>
+              <input name= "clave"  type="password" placeholder="Cotraseña" class="form-control" th:value="${clave}"/>
+
+              <br><label> Repita la contraseña </label></br>
+              <input name= "clave2"  type="password" placeholder="Cotraseña" class="form-control" th:value="${clave2}"/>
+              
+              <br><label>Descripcion</label></br>
+              <input name= "descripcion"  type="text" placeholder="Escribe una breve idea sobre tu forma de enseñar" class="form-control" th:value="${perfil.descripcion}"/>
+
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Foto</label>
+                  <input class="form-control" name="archivo" id="foto" type="file" placeholder="Foto" />
+                  <p class="help-block text-danger"></p>
+              </div>
+
+              </div>
+              <button type="submit" class="btn btn-primary btn-xl rounded-pill mt-5">Cargar</button>    </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- Footer -->
+ <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

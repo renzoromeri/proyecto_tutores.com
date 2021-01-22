@@ -1,0 +1,16 @@
+header.masthead {
+    position: relative;
+    overflow: hidden;
+    /* padding-top: calc(10rem + 72px); */
+    padding: 330px;
+    padding-bottom: 7rem;
+   /*  background: linear-gradient(0deg,#ff6a00 0,#ee0979 100%); */
+   background-image: url("https://images.unsplash.com/photo-1516383607781-913a19294fd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+.text-white {
+    color: rgb(100, 100, 100)!important;
+}

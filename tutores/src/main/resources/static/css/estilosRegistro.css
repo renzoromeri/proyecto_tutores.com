@@ -1,0 +1,32 @@
+footer {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+  }
+  header.masthead {
+    padding-top: calc(14rem + 55px);
+    padding-bottom: 10rem;
+}
+header.masthead {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(15rem + 73px);
+    padding-bottom: 7rem;
+    /* background: linear-gradient(0deg,#ff6a00 0,#ee0979 100%); */
+    background-image: url("https://images.unsplash.com/photo-1494599948593-3dafe8338d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+.btn-primary {
+    background-color: #060606;
+    border-color: #fdfdfd;
+}
+
+.text-white {
+    color: rgb(68 68 68)!important;
+}

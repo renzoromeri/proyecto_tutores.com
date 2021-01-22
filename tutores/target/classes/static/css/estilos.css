@@ -1,0 +1,29 @@
+/*ESTILO GENERAL index */
+
+.carousel-item {
+    max-height: 800px;
+    overflow: hidden!important;
+}
+
+
+.navbar-custom {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    background-color: rgba(0,0,0,.7);
+}
+    
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.btn-primary {
+    background-color: #000000;
+    border-color:  #000000;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(255 255 255);
+}

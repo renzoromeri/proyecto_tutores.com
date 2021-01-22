@@ -1,0 +1,20 @@
+header.masthead {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(16rem + 72px);
+    padding-bottom: 7rem;
+    /* background: linear-gradient(0deg,#ff6a00 0,#ee0979 100%); */
+    background-image: url("https://images.unsplash.com/photo-1574790398664-0cb03682ed1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+.text-white {
+    color: #b3b3b3!important
+}
+.btn-primary {
+    background-color: #000000;
+    border-color: black;
+    text-shadow: 3px 3px 2px black;
+}

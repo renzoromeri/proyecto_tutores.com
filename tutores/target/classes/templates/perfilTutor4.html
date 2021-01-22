@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tutores.com</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+    <link href="/css/estilosperfilAlumno.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a th:href="@{/tutor/elimina-Tutor(id=__${session.clientesession.id}__ )}" class="nav-link">Eliminar
+                        Perfil</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="masthead text-center text-white">
+
+        <h2 class="display-4">Modifica tu perfil</h2>
+        <p></p>
+        <form action="/tutor/actualizar-perfilTutor" method="POST" th:object="${perfil}">
+            <p th:if="${error!=null}" th:text="${error}" style="color:red;"></p>
+
+            <!--<img th:src="@{/foto/cargar/__${perfil.id}__}" style="width: auto; height: 60px;">
+            <img width="200" src="https://enlinea.santotomas.cl/wp-content/uploads/sites/2/2018/03/vu-700x465.png" 
+                     height="200" alt="Editar foto" id="ember471" class="profile-photo-edit__preview ember-view">-->
+
+            <input name="id" type="hidden" th:value="${perfil.id}">
+
+            <br><label>Nombre</label></br>
+            <input name="nombre" type="text" placeholder="Escribe tu nombre" class="form-control"
+                th:value="${perfil.nombre}" />
+
+            <br><label>Apellido</label></br>
+            <input name="apellido" type="text" placeholder="Escribe tu apellido" class="form-control"
+                th:value="${perfil.apellido}" />
+
+            <br><label>Telefono</label></br>
+            <input name="telefono" type="text" placeholder="Telefono" class="form-control"
+                th:value="${perfil.telefono}" />
+
+            <br><label>Mail</label></br>
+            <input name="mail" type="email" placeholder="Mail" class="form-control" th:value="${perfil.mail}" />
+
+            <br><label> Zona </label></br>
+            <select class="form-control" name="idZona" type="text" placeholder="Indique su zona">
+                <option th:each="zona:${zonas}" th:value="${zona.id}" th:text="${zona.nombre}"></option>
+            </select>
+
+            <br><label> Materia </label></br>
+            <p>En la seccion de "Configuracion" de "Tutor", podrá especificar datos de materia e incluir otras más para
+                enseñar</p>
+            <select class="form-control" name="idMateria" type="text"
+                placeholder="Indique la materia que quiere enseñar">
+                <option th:each="materia:${materias}" th:value="${materia.id}"
+                    th:text="${materia.asignatura + '- ' +materia.nombre + '- ' + materia.nivelEducativo}">Materia
+                </option>
+            </select>
+
+            <br><label>Contraseña</label></br>
+            <input name="clave" type="password" placeholder="Cotraseña" class="form-control" th:value="${clave}" />
+
+            <br><label> Repita la contraseña </label></br>
+            <input name="clave2" type="password" placeholder="Cotraseña" class="form-control" th:value="${clave2}" />
+
+            <!--<div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Foto</label>
+                <input class="form-control" name="archivo" id="foto" type="file" placeholder="Foto" />
+                <p class="help-block text-danger"></p>
+            </div>-->
+
+            <br><label>Descripcion</label></br>
+            <input name="descripcion" type="text" placeholder="Escribe una breve idea sobre tu forma de enseñar"
+                class="form-control" th:value="${perfil.descripcion}" />
+            <br>
+            </div>
+            <a href="/inicio" class="btn btn-primary btn-xl rounded-pill mt-5">Volver a Inicio</a>
+            <button type="submit" class="btn btn-primary btn-xl rounded-pill mt-5">Cargar</button> </div>
+        </form>
+
+    </header>
+
+    <section>
+
+    </section>
+
+    <section>
+
+    </section>
+
+    <section>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

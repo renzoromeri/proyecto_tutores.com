@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Tutores.com - inicio</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+        <link href="/css/estilosInicio.css" rel="stylesheet" >
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" >
+            <div class="container">
+                <a class="navbar-brand" href="/#">
+                    <img src="img/logo.png" alt="">
+                </a>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/usuario/editar-perfil/__${session.clientesession.id}__ }">Configurar Usuario</a>
+                        <!--<a th:href="@{/usuario/editar-perfil(id=__${session.clientesession.id}__ )}" class="btn btn-primary btn-xl rounded-pill mt-5">Configurar Usuario</a>-->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container">
+                    <h1 class="masthead-subheading mb-0">Hola de nuevo!</h1>
+                    <h2 class="masthead-subheading mb-0" th:if="${session.clientesession != null}" th:text="${session.clientesession.nombre}"></h2>
+
+                    <!--BUSCADOR-->
+                   
+                         <form action="/listar" method="GET"> 
+                            <p>
+
+                                <input type="search" name="q" id="buscar" placeholder="Buscar Tutor" th:value="${q}"> 
+                                <input type="submit" value="Buscar" ></p>
+
+                        </form>
+
+
+                        <!--fin-->
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="bg-circle-1 bg-circle"></div>
+             <div class="bg-circle-2 bg-circle"></div>
+             <div class="bg-circle-3 bg-circle"></div>
+            <--<div class="bg-circle-4 bg-circle"></div>-->
+        </header>
+
+        
+        <section>
+            <p>
+                <div class="container">
+                    <div class="card bg">
+                        <div class="card-header">
+                            <h3>Lista de tutores</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+        
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Materia</th> 
+                                        <th>Asignatura</th>  
+                                        <th>Nivel</th>    
+                                        <th>Zona</th>                   
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="tutor: ${tutores}">
+                                        <td th:text="${tutor.nombre}"></td>
+                                        <td th:text="${tutor.apellido}"></td>
+                                        <td th:text="${tutor.materia.nombre}"></td>
+                                        <td th:text="${tutor.materia.asignatura}"></td>
+                                        <!--<td ><a th:ref="@{/asdasd/{tutor.id}}">+Info</a></td>
+                                        <td ><a>Asignaturas +Info</a></td>-->
+                                        <td th:text="${tutor.materia.nivelEducativo}"></td>
+                                        <td th:text="${tutor.zona.nombre}"></td>
+                                        <td><a th:href="${'/tutor/mostrarTutor/' + tutor.id}" type="btn btn-primary">Ver Perfil</a> </td>
+                                        
+<!--                                <form action="/tutor/enviarTutor" method="GET"> 
+                                    <input type="hidden" th:value="${tutor.id}"><td><input type="submit" value="Ver Perfil"></td></form>-->
+       
+
+                                        <!--<td><a th:href="@{eliminar/} + ${producto.id}" th:text="'Eliminar'" class="btn btn-outline-danger"></a></td>-->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4" th:text="${titulo}"></h2>
+                            <p th:text="${descripcion}"></p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- Footer -->
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+
+</html>
